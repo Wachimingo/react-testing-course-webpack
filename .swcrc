@@ -1,0 +1,15 @@
+{
+    "jsc": {
+        "parser": {
+            "syntax": "ecmascript",
+            "jsx": true,
+            "decorators": false
+        },
+        "transform": null,
+        "target": "es2022"
+    },
+    "module": {
+        "type": "es6"
+    },
+    "test": ".jsx?$"
+}
