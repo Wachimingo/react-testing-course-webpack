@@ -2,7 +2,7 @@ const path = require('path');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
-    entry: path.join(__dirname, 'src', 'index.js'),
+    entry: path.join(__dirname, 'src', 'index.jsx'),
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, './dist/'),
@@ -22,7 +22,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.?js$/,
+                test: /\.?jsx$/,
                 exclude: /node_modules/,
                 use: {
                     // Use `.swcrc` to configure swc
@@ -44,4 +44,7 @@ module.exports = {
         // new HtmlWebpackPlugin(),
         // new CleanWebpackPlugin(),
     ],
+    resolve: {
+        extensions: ['.js', '.jsx'],
+    },
 }

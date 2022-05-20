@@ -1,6 +1,9 @@
+/** 
+ *@jest-enviroment jsdom
+*/
+
 import React from 'react';
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
+import { render, screen } from '../../../test-utils/testing-library-utils';
 import Options from '../options';
 
 // src/setupTests.js
@@ -21,4 +24,14 @@ test('Display image for each scoop option from server', async () => {
 
     const altTexts = scoopImages.map(images => images.alt);
     expect(altTexts).toEqual(['Chocolate scoop', 'Vanilla scoop']);
+});
+
+test('Display image for each topping option from server', async () => {
+    render(<Options optionType="toppings" />);
+
+    const scoopImages = await screen.findAllByRole('img', { name: /topping$/i });
+    expect(scoopImages).toHaveLength(3);
+
+    const altTexts = scoopImages.map(images => images.alt);
+    expect(altTexts).toEqual(['Cherries topping', 'M&Ms topping', 'Hot Fudge topping']);
 })
